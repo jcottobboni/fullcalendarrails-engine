@@ -122,7 +122,7 @@ FullcalendarEngine = {
         $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", \"future\")'>Deletar todos os eventos futuros</a>")
       } else {
         title = event.title;
-        $delete_event.html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")'>Apagar</a>");
+        $delete_event.html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")' class='btn btn-danger' >Apagar</a>");
       }
       $event_actions.append($edit_event).append(" | ").append($delete_event)
       $('#event_desc_dialog').append($event_description).append($event_actions)
