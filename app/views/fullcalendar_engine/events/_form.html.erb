@@ -32,6 +32,6 @@
   <%=f.select :frequency, (1..30).to_a %> <span id = "period"></span>
 </p>
 <p>
-  <%=f.submit %> <span id = "creating_events" class="spinner" style = "display:none;">Cadastrando, Aguarde...</span>
+  <%=f.submit "Gravar",:class=>'btn btn-success'%> <span id = "creating_events" class="spinner" style = "display:none;">Cadastrando, Aguarde...</span>
 </p>
 <%end %>
