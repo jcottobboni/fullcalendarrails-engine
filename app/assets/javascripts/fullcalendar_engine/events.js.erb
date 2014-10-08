@@ -6,7 +6,7 @@ app_path              = "<%= FullcalendarEngine::Configuration["mount_path"] %>"
 
 $.extend(full_calendar_options, {
   loading: function(bool){
-    if (bool) 
+    if (bool)
       $('#loading').show();
     else
       $('#loading').hide();
@@ -21,10 +21,10 @@ $.extend(full_calendar_options, {
     FullcalendarEngine.Events.showEventDetails(event);
   },
   select: function( startDate, endDate, allDay, jsEvent, view ) {
-    FullcalendarEngine.Form.display({ 
-      starttime: new Date(startDate.getTime()), 
-      endtime:   new Date(endDate.getTime()), 
-      allDay:    allDay 
+    FullcalendarEngine.Form.display({
+      starttime: new Date(startDate.getTime()),
+      endtime:   new Date(endDate.getTime()),
+      allDay:    allDay
     })
   }
 })
@@ -45,7 +45,7 @@ FullcalendarEngine = {
       FullcalendarEngine.setTime('#event_endtime', endTime)
       $('#event_all_day').attr('checked', options['allDay'])
       $('#create_event_dialog').dialog({
-        title: 'New Event',
+        title: 'Novo Agendamento',
         modal: true,
         width: 500,
         close: function(event, ui) { $('#create_event_dialog').dialog('destroy') }
@@ -112,17 +112,17 @@ FullcalendarEngine = {
       $('#event_desc_dialog').html('')
       $event_description  = $('<div />').html(event.description).attr("id", "edit_event_description")
       $event_actions      = $('<div />').attr("id", "event_actions")
-      $edit_event         = $('<span />').attr("id", "edit_event").html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.edit(" + event.id + ")'>Edit</a>");
+      $edit_event         = $('<span />').attr("id", "edit_event").html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.edit(" + event.id + ")'>Editar</a>");
       $delete_event       = $('<span />').attr("id", "delete_event")
       if (event.recurring) {
         title = event.title + "(Recurring)";
         // Cannot be refactored as of now, the event bubbling of the eventClick of the fullCalendar is the culprit
-        $delete_event.html("&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")'>Delete Only This Occurrence</a>");
-        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + true + ")'>Delete All In Series</a>")
-        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", \"future\")'>Delete All Future Events</a>")
+        $delete_event.html("&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")'>Deletar esta ocorrência</a>");
+        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + true + ")'>Deletar todas as ocorrências</a>")
+        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", \"future\")'>Deletar todos os eventos futuros</a>")
       } else {
         title = event.title;
-        $delete_event.html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")'>Delete</a>");
+        $delete_event.html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")'>Apagar</a>");
       }
       $event_actions.append($edit_event).append(" | ").append($delete_event)
       $('#event_desc_dialog').append($event_description).append($event_actions)
