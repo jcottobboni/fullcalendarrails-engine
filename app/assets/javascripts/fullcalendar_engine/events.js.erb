@@ -112,14 +112,14 @@ FullcalendarEngine = {
       $('#event_desc_dialog').html('')
       $event_description  = $('<div />').html(event.description).attr("id", "edit_event_description")
       $event_actions      = $('<div />').attr("id", "event_actions")
-      $edit_event         = $('<span />').attr("id", "edit_event").html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.edit(" + event.id + ")class='btn btn-warning'>Editar</a>");
+      $edit_event         = $('<span />').attr("id", "edit_event").html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.edit(" + event.id + ")' class='btn btn-warning'>Editar</a>");
       $delete_event       = $('<span />').attr("id", "delete_event")
       if (event.recurring) {
         title = event.title + "(Recurring)";
         // Cannot be refactored as of now, the event bubbling of the eventClick of the fullCalendar is the culprit
-        $delete_event.html("&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")class='btn btn-danger'>Deletar esta ocorrência</a>");
-        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + true + ")class='btn btn-danger'>Deletar todas as ocorrências</a>")
-        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", \"future\")class='btn btn-danger'>Deletar todos os eventos futuros</a>")
+        $delete_event.html("&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")' class='btn btn-danger'>Deletar esta ocorrência</a>");
+        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + true + ")' class='btn btn-danger'>Deletar todas as ocorrências</a>")
+        $delete_event.append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", \"future\")' class='btn btn-danger'>Deletar todos os eventos futuros</a>")
       } else {
         title = event.title;
         $delete_event.html("<a href = 'javascript:void(0);' onclick ='FullcalendarEngine.Events.delete(" + event.id + ", " + false + ")' class='btn btn-danger' >Apagar</a>");
