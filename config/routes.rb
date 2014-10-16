@@ -8,5 +8,6 @@ FullcalendarEngine::Engine.routes.draw do
       post :resize
     end
   end
+  devise_for :users, :controllers => { :registrations => "users" }
   root :to => 'events#index'
 end
