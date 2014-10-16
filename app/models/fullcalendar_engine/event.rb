@@ -9,11 +9,11 @@ module FullcalendarEngine
     belongs_to :event_series
 
     REPEATS = {
-      :no_repeat => "Does not repeat",
-      :days      => "Daily",
-      :weeks     => "Weekly",
-      :months    => "Monthly",
-      :years     => "Yearly"
+      :no_repeat => "Nao Repetir",
+      :days      => "Diario",
+      :weeks     => "Semanal",
+      :months    => "Mensal",
+      :years     => "Anual"
     }
 
     def validate_timings
@@ -27,7 +27,7 @@ module FullcalendarEngine
         begin
           old_start_time, old_end_time = e.starttime, e.endtime
           e.attributes = event
-          if event_series.period.downcase == 'monthly' or event_series.period.downcase == 'yearly'
+          if event_series.period.downcase == 'mensal' or event_series.period.downcase == 'yearly'
             new_start_time = make_date_time(e.starttime, old_start_time)
             new_end_time   = make_date_time(e.starttime, old_end_time, e.endtime)
           else
