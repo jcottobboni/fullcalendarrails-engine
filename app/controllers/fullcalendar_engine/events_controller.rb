@@ -3,7 +3,7 @@ require_dependency 'fullcalendar_engine/application_controller'
 module FullcalendarEngine
   class EventsController < ApplicationController
 
-    layout FullcalendarEngine::Configuration['layout'] || 'application'
+    #layout FullcalendarEngine::Configuration['layout'] || 'application'
 
     before_filter :load_event, only: [:edit, :update, :destroy, :move, :resize]
     before_filter :determine_event_type, only: :create
@@ -36,7 +36,7 @@ module FullcalendarEngine
       @events.each do |event|
         events << { id: event.id,
                     title: event.title,
-                    description: event.description || '', 
+                    description: event.description || '',
                     start: event.starttime.iso8601,
                     end: event.endtime.iso8601,
                     allDay: event.all_day,
@@ -59,12 +59,12 @@ module FullcalendarEngine
       if @event
         @event.endtime = make_time_from_minute_and_day_delta(@event.endtime)
         @event.save
-      end    
+      end
       render nothing: true
     end
 
     def edit
-      render json: { form: render_to_string(partial: 'edit_form') } 
+      render json: { form: render_to_string(partial: 'edit_form') }
     end
 
     def update
@@ -73,7 +73,7 @@ module FullcalendarEngine
         @events = @event.event_series.events
         @event.update_events(@events, event_params)
       when 'Update All Following Occurrence'
-        @events = @event.event_series.events.where('starttime > :start_time', 
+        @events = @event.event_series.events.where('starttime > :start_time',
                                                    start_time: @event.starttime.to_formatted_s(:db)).to_a
         @event.update_events(@events, event_params)
       else
