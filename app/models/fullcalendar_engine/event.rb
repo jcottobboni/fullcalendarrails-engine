@@ -9,7 +9,7 @@ module FullcalendarEngine
     belongs_to :event_series
 
     REPEATS = {
-      :no_repeat => "Does not repeat",
+      :no_repeat => "Nao se repete",
       :days      => "Diario",
       :weeks     => "Semanal",
       :months    => "Mensal",
