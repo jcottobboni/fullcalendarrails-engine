@@ -111,7 +111,7 @@ module FullcalendarEngine
     end
 
     def determine_event_type
-      if params[:event][:period] == "Does not repeat"
+      if params[:event][:period] == "Nao se repete"
         @event = Event.new(event_params)
       else
         @event = EventSeries.new(event_params)
