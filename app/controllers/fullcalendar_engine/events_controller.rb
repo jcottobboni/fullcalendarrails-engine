@@ -3,7 +3,7 @@ require_dependency 'fullcalendar_engine/application_controller'
 module FullcalendarEngine
   class EventsController < ApplicationController
 
-    layout FullcalendarEngine::Configuration['layout'] || 'application'
+    layout FullcalendarEngine::Configuration['layout'] || 'application-lateral-menu'
 
     before_filter :load_event, only: [:edit, :update, :destroy, :move, :resize]
     before_filter :determine_event_type, only: :create
